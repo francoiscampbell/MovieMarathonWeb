@@ -19,20 +19,24 @@
         <g:if test="${allMovies.size() == 0}">
             <h1>No movies found near that location</h1>
         </g:if> <g:else>
-        <div class="form-group">
-            <g:form method="post" action="schedules">
-                <h1>Choose your movies:</h1>
-                <g:select class="form-control"
-                          id="movies"
-                          name="movies"
-                          from="${allMovies}"
-                          optionKey="tmsId"
-                          multiple="true"
-                          size="${allMovies.size()}"/>
+        <g:form method="post" action="schedules">
+            <div class="form-group form-group-lg">
+                <div class="col-lg-12">
+                    <h1>Choose your movies:</h1>
+                </div>
 
-                <g:submitButton name="submit" value="Submit"/>
-            </g:form>
-        </div>
+                <div class="col-lg-12">
+                    <g:select class="form-control"
+                              id="movies"
+                              name="movies"
+                              from="${allMovies}"
+                              optionKey="tmsId"
+                              multiple="true"
+                              size="${allMovies.size() / 2}"/>
+                    <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
+                </div>
+            </div>
+        </g:form>
     </g:else>
     </div>
 </div>
