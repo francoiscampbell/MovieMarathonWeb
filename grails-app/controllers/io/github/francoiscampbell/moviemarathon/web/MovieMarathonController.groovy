@@ -12,6 +12,10 @@ class MovieMarathonController {
 
     //TODO: add user choice for builder params in index controller and fetch them here
     def movies() {
+        if (params.lat == null || params.lng == null) {
+            redirect action: "index"
+            return
+        }
         String currentDate = LocalDate.now().toString()
         OnConnectApiRequest request = new OnConnectApiRequest.Builder(currentDate)
                 .apiKey(ApiKey.API_KEY)
