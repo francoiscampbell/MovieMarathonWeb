@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="col-lg-2">
-                    <g:submitButton class="btn btn-info btn-lg" name="submit" value="Choose movies"/>
+                    <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Choose movies"/>
                 </div>
                 <input type="hidden" name="lat" id="lat"/>
                 <input type="hidden" name="lng" id="lng"/>
