@@ -11,6 +11,7 @@
     <meta name="layout" content="main">
     <title>Movie Marathon</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <asset:stylesheet src="movieMarathon.index.css"/>
 </head>
 
 <body>
