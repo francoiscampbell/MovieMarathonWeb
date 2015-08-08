@@ -11,6 +11,7 @@
     <meta name="layout" content="main">
     <title>Movie Marathon</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <asset:javascript src="autocomplete.js"/>
     <asset:stylesheet src="movieMarathon.index.css"/>
 </head>
 
@@ -22,17 +23,19 @@
         <p>This app helps plan movie marathons at Canadian and US movie theatres.</p>
         <g:form class="form-horizontal" name="form-postcode" action="movies" method="post">
             <div class="form-group form-group-lg">
+
                 <div class="col-lg-10">
                     <input type="text" class="form-control" name="pac-place"
                            placeholder="Where are you?"
                            value="" id="pac-place"/>
                 </div>
 
-                <div class="col-lg-2">
-                    <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Choose movies"/>
-                </div>
                 <input type="hidden" name="lat" id="lat"/>
                 <input type="hidden" name="lng" id="lng"/>
+
+                <div class="col-lg-2">
+                    <g:submitButton class="btn btn-info btn-lg btn-block" name="submitButton" value="Choose movies"/>
+                </div>
             </div>
         </g:form>
     </div>
