@@ -44,7 +44,7 @@ class MovieMarathonController {
 
     private def chooseParameters(ScheduleGenerator.Builder builder) {
         builder.sortByDelay(true)
-                .includePreviewsLength(false)
+                .ignorePreviews(true)
                 .maxOverlap(Duration.standardMinutes(0))
     }
 }
