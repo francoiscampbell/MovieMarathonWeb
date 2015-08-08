@@ -5,12 +5,16 @@
   Time: 2:17 PM
 --%>
 
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="io.github.francoiscampbell.apimodel.Movie" contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main">
     <title>Movie List</title>
-    <g:set var="allMovies" value="${builder.build().getAllMovies()}"/>
+    <g:set var="allMovies" value="${builder.build().getAllMovies().toSorted(new Comparator<Movie>() {
+        int compare(Movie o1, Movie o2) {
+            return o1.title.compareTo(o2.title)
+        }
+    })}"/>
 </head>
 
 <body>
@@ -32,7 +36,7 @@
                               from="${allMovies}"
                               optionKey="tmsId"
                               multiple="true"
-                              size="${allMovies.size() / 2}"/>
+                              size="${Math.min(allMovies.size(), 20)}"/>
                     <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
                 </div>
             </div>

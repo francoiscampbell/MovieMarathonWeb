@@ -1,6 +1,7 @@
 package io.github.francoiscampbell.moviemarathon.web
 
 import io.github.francoiscampbell.api.OnConnectApiRequest
+import io.github.francoiscampbell.apimodel.Movie
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
 import org.joda.time.Duration
@@ -25,6 +26,12 @@ class MovieMarathonController {
                 .build()
 
         def builder = request.execute()
+        Collections.sort(new ArrayList<Movie>(), new Comparator<Movie>() {
+            @Override
+            int compare(Movie o1, Movie o2) {
+                return o1.title.compareTo(o2.title)
+            }
+        })
         session["builder"] = builder
         [builder: builder]
     }
