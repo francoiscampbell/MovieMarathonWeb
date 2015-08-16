@@ -1,7 +1,5 @@
 package io.github.francoiscampbell.moviemarathon.web
-
 import io.github.francoiscampbell.api.OnConnectApiRequest
-import io.github.francoiscampbell.apimodel.Movie
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
 import org.joda.time.Duration
@@ -17,21 +15,23 @@ class MovieMarathonController {
             redirect action: "index"
             return
         }
+        float lat
+        float lng
+        try {
+            lat = Float.parseFloat(params.lat)
+            lng = Float.parseFloat(params.lng)
+        } catch (NumberFormatException ignore) {
+            redirect action: "index"
+            return
+        }
         String currentDate = LocalDate.now().toString()
         OnConnectApiRequest request = new OnConnectApiRequest.Builder(currentDate)
                 .apiKey(ApiKey.API_KEY)
-                .latlng(Float.parseFloat(params.lat), Float.parseFloat(params.lng)) //TODO: fix exceptions for wrong data
+                .latlng(lat, lng) //TODO: fix exceptions for wrong data
                 .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
-//                .logLevel(RestAdapter.LogLevel.FULL)
                 .build()
 
         def builder = request.execute()
-        Collections.sort(new ArrayList<Movie>(), new Comparator<Movie>() {
-            @Override
-            int compare(Movie o1, Movie o2) {
-                return o1.title.compareTo(o2.title)
-            }
-        })
         session["builder"] = builder
         [builder: builder]
     }

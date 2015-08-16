@@ -15,7 +15,8 @@
 <body>
 <div class="jumbotron">
     <div class="container">
-        <h1>Generated ${schedules.size()} schedules:</h1>
+        <g:set var="colon" value="${schedules.size() == 0 ? "schedules." : "schedules:"}"/>
+        <h1>Generated ${schedules.size()} ${colon}</h1>
         <g:each in="${schedules}" var="schedule" status="i">
             <h2>Schedule ${i + 1} at ${schedule.theatre.name}:</h2>
             <g:each in="${schedule.showtimes}" var="showtime">

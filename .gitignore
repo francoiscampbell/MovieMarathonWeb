@@ -82,6 +82,9 @@ crashlytics-build.properties
 
 # "temporary" build files
 /target
+
+/.asscache
+
 ### Gradle template
 .gradle
 build/
