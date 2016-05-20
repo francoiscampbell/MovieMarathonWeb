@@ -33,7 +33,9 @@
                     <g:each in="${allMovies}" var="movie">
                         <div class="movie" id="${movie.tmsId}">
                             <div class="poster">
-                                Poster goes here
+                                <div class="img-container">
+                                    <img src="${movie.getPreferredImage().getUri()}">
+                                </div>
                             </div>
                             ${movie.title}
                         </div>

@@ -1,5 +1,6 @@
 package io.github.francoiscampbell.moviemarathon.web
-import io.github.francoiscampbell.api.OnConnectApiRequest
+
+import io.github.francoiscampbell.api.ApiRequest
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
 import org.joda.time.Duration
@@ -24,14 +25,18 @@ class MovieMarathonController {
             redirect action: "index"
             return
         }
-        String currentDate = LocalDate.now().toString()
-        OnConnectApiRequest request = new OnConnectApiRequest.Builder(currentDate)
+        def currentDate = LocalDate.now().toString()
+        def request = new ApiRequest.Builder(currentDate)
                 .apiKey(ApiKey.API_KEY)
-                .latlng(lat, lng) //TODO: fix exceptions for wrong data
-                .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
+                .latlng(lat, lng)
+                .radiusUnit(ApiRequest.RadiusUnit.KM)
+                .mockResponse(new File("mockResponse.json"))
                 .build()
 
-        def builder = request.execute()
+        def movies = new LinkedList()
+        request.execute().toBlocking().forEach({ movies.add it })
+
+        def builder = new ScheduleGenerator.Builder(movies)
         session["builder"] = builder
         [builder: builder]
     }
