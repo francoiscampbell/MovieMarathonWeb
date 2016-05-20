@@ -7,7 +7,7 @@ div.container {
 }
 
 div.form-group {
-    width: 750px;
+    max-width: 750px;
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
