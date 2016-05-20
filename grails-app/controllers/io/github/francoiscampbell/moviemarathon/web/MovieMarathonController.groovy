@@ -1,5 +1,6 @@
 package io.github.francoiscampbell.moviemarathon.web
 
+import grails.util.Environment
 import io.github.francoiscampbell.api.OnConnectApiRequest
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
@@ -26,12 +27,20 @@ class MovieMarathonController {
             return
         }
         String currentDate = LocalDate.now().toString()
-        OnConnectApiRequest request = new OnConnectApiRequest.Builder(currentDate)
-                .apiKey(ApiKey.API_KEY)
-                .latlng(lat, lng) //TODO: fix exceptions for wrong data
-                .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
-                .mockResponse(new File("mockResponse.json"))
-                .build()
+        OnConnectApiRequest request
+
+        if (Environment.current == Environment.PRODUCTION) {
+            request = new OnConnectApiRequest.Builder(currentDate)
+                    .apiKey(ApiKey.API_KEY)
+                    .latlng(lat, lng) //TODO: fix exceptions for wrong data
+                    .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
+                    .mockResponse(new File("mockResponse.json"))
+                    .build()
+        } else {
+            request = new OnConnectApiRequest.Builder(currentDate)
+                    .mockResponse(new File("mockResponse.json"))
+                    .build()
+        }
 
         def builder = request.execute()
         session["builder"] = builder
@@ -59,4 +68,5 @@ class MovieMarathonController {
                 .ignorePreviews(ignorePreviews)
                 .maxOverlap(Duration.standardMinutes(maxOverlapMinutes))
     }
+
 }

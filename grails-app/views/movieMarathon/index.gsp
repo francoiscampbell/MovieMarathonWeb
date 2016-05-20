@@ -12,6 +12,7 @@
     <title>Movie Marathon</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <asset:javascript src="autocomplete.js"/>
+    <asset:javascript src="dateTimePicker.js"/>
     <asset:stylesheet src="movieMarathon.index.css"/>
 </head>
 
@@ -33,7 +34,12 @@
                 <input type="hidden" name="lng" id="lng"/>
 
                 <div class="col-lg-6">
-                    <g:datePicker name="date" precision="day"/>
+                    <div class='input-group date' id='dateTimePicker'>
+                        <input type='text' class="form-control" title="When?"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="col-lg-6">
