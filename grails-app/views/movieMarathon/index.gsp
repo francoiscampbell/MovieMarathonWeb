@@ -29,7 +29,6 @@
                            placeholder="Where are you?"
                            value="" id="pac-place"/>
                 </div>
-
                 <input type="hidden" name="lat" id="lat"/>
                 <input type="hidden" name="lng" id="lng"/>
 

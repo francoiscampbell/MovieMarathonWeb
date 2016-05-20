@@ -29,6 +29,7 @@ class MovieMarathonController {
                 .apiKey(ApiKey.API_KEY)
                 .latlng(lat, lng) //TODO: fix exceptions for wrong data
                 .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
+                .mockResponse(new File("mockResponse.json"))
                 .build()
 
         def builder = request.execute()

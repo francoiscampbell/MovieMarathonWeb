@@ -10,6 +10,9 @@
 <head>
     <meta name="layout" content="main">
     <title>Movie List</title>
+    <asset:javascript src="advancedOptions.js"/>
+    <asset:stylesheet src="movieMarathon.movies.css"/>
+
     <g:set var="allMovies" value="${builder.build().getAllMovies().toSorted(new Comparator<Movie>() {
         int compare(Movie o1, Movie o2) {
             return o1.title.compareTo(o2.title)
@@ -25,19 +28,27 @@
         </g:if> <g:else>
         <g:form method="post" action="schedules">
             <div class="form-group form-group-lg">
-                <div class="col-lg-12">
-                    <h1>Choose your movies:</h1>
-                </div>
+                <h1>Choose your movies:</h1>
 
-                <div class="col-lg-12">
-                    <g:select class="form-control"
-                              id="movies"
-                              name="movies"
-                              from="${allMovies}"
-                              optionKey="tmsId"
-                              multiple="true"
-                              size="${Math.min(allMovies.size(), 20)}"/>
-                    <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
+                <g:select class="form-control"
+                          id="movies"
+                          name="movies"
+                          from="${allMovies}"
+                          optionKey="tmsId"
+                          multiple="true"
+                          size="${Math.min(allMovies.size(), 15)}"/>
+                <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
+
+                <a href="#" id="advancedOptionsTrigger">Advanced Options</a>
+            </div>
+
+            <div id="advancedOptionsContainer">
+                <div class="form-group form-group-lg">
+                    <p>Advanced option 1</p>
+
+                    <p>Advanced option 2</p>
+
+                    <p>Advanced option 3</p>
                 </div>
             </div>
         </g:form>

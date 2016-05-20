@@ -1,0 +1,19 @@
+div.container {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+div.form-group {
+    width: 750px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#advancedOptionsContainer {
+    display: none;
+}
