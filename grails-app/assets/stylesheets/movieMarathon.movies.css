@@ -15,5 +15,15 @@ div.form-group {
 }
 
 #advancedOptionsContainer {
-    display: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #666666;
+    color: white;
+    /*display: none;*/
+}
+
+#advancedOptionsContainer input {
+    color: black;
+    margin-top: .2em;
+    margin-bottom: .2em;
 }

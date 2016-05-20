@@ -1,4 +1,5 @@
 package io.github.francoiscampbell.moviemarathon.web
+
 import io.github.francoiscampbell.api.OnConnectApiRequest
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
@@ -51,8 +52,11 @@ class MovieMarathonController {
     }
 
     private def chooseParameters(ScheduleGenerator.Builder builder) {
+        boolean ignorePreviews = params.addPreviewsToRunningTime == "on"
+        long maxOverlapMinutes = Long.parseLong(params.maxOverlap ?: "0")
+
         builder.sortByDelay(true)
-                .ignorePreviews(true)
-                .maxOverlap(Duration.standardMinutes(0))
+                .ignorePreviews(ignorePreviews)
+                .maxOverlap(Duration.standardMinutes(maxOverlapMinutes))
     }
 }
