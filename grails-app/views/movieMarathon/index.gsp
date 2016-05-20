@@ -24,7 +24,7 @@
         <g:form class="form-horizontal" name="form-postcode" action="movies" method="post">
             <div class="form-group form-group-lg">
 
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <input type="text" class="form-control" name="pac-place"
                            placeholder="Where are you?"
                            value="" id="pac-place"/>
@@ -32,9 +32,14 @@
                 <input type="hidden" name="lat" id="lat"/>
                 <input type="hidden" name="lng" id="lng"/>
 
-                <div class="col-lg-2">
+                <div class="col-lg-6">
+                    <g:datePicker name="date" precision="day"/>
+                </div>
+
+                <div class="col-lg-6">
                     <g:submitButton class="btn btn-info btn-lg btn-block" name="submitButton" value="Choose movies"/>
                 </div>
+
             </div>
         </g:form>
     </div>
