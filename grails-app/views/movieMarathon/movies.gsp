@@ -11,9 +11,11 @@
     <meta name="layout" content="main">
     <title>Movie List</title>
 
-    <!-- bower:js -->
+    <!-- bower:css -->
+    <asset:stylesheet src="../../assets/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <asset:stylesheet
+            src="../../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
     <!-- endbower -->
-    <asset:javascript src="advancedOptions.js"/>
     <asset:stylesheet src="movieMarathon.movies.css"/>
 
     <g:set var="allMovies" value="${builder.build().getAllMovies().toSorted(new Comparator<Movie>() {
@@ -24,6 +26,17 @@
 </head>
 
 <body>
+
+<!-- bower:js -->
+<asset:javascript src="../../assets/bower_components/jquery/dist/jquery.js"/>
+<asset:javascript src="../../assets/bower_components/bootstrap/dist/js/bootstrap.js"/>
+<asset:javascript src="../../assets/bower_components/moment/moment.js"/>
+<asset:javascript src="../../assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"/>
+<asset:javascript
+        src="../../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"/>
+<!-- endbower -->
+<asset:javascript src="advancedOptions.js"/>
+
 <div class="jumbotron">
     <div class="container">
         <g:if test="${allMovies.size() == 0}">
@@ -39,7 +52,7 @@
                           from="${allMovies}"
                           optionKey="tmsId"
                           multiple="true"
-                          size="${Math.min(allMovies.size(), 15)}"/>
+                          size="${Math.min(allMovies.size(), 100)}"/>
                 <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
 
                 <a href="#" id="advancedOptionsTrigger">Advanced Options</a>

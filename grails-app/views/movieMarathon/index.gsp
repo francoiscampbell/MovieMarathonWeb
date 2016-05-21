@@ -11,15 +11,28 @@
     <meta name="layout" content="main">
     <title>Movie Marathon</title>
 
-    <!-- bower:js -->
+    <!-- bower:css -->
+    <asset:stylesheet src="../../assets/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <asset:stylesheet
+            src="../../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
     <!-- endbower -->
-    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    <asset:javascript src="autocomplete.js"/>
-    <asset:javascript src="dateTimePicker.js"/>
     <asset:stylesheet src="movieMarathon.index.css"/>
 </head>
 
 <body>
+
+<!-- bower:js -->
+<asset:javascript src="../../assets/bower_components/jquery/dist/jquery.js"/>
+<asset:javascript src="../../assets/bower_components/bootstrap/dist/js/bootstrap.js"/>
+<asset:javascript src="../../assets/bower_components/moment/moment.js"/>
+<asset:javascript src="../../assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"/>
+<asset:javascript
+        src="../../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"/>
+<!-- endbower -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<asset:javascript src="autocomplete.js"/>
+<asset:javascript src="dateTimePicker.js"/>
+
 <div class="jumbotron">
     <div class="container">
         <h1>Movie Marathon</h1>

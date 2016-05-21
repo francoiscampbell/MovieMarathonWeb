@@ -7,13 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <asset:link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-        <asset:javascript src="application.js"/>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <asset:stylesheet src="application.css"/>
 
         <g:layoutHead/>
     </head>
     <body>
+    <asset:javascript src="application.js"/>
         <g:layoutBody/>
     </body>
 </html>

@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "bower": "^1.7.9",
-    "grunt": "^1.0.1"
+    "grunt": "^1.0.1",
+    "grunt-wiredep": "^3.0.1"
   },
   "devDependencies": {},
   "scripts": {
