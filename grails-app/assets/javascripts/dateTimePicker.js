@@ -2,5 +2,11 @@
  * Created by francois on 2016-05-20.
  */
 $(function () {
-    $('#dateTimePicker').datetimepicker();
+    var $dateTimePicker = $('#dateTimePicker');
+    $dateTimePicker.datetimepicker();
+
+    $dateTimePicker.data("DateTimePicker").options({
+        minDate: false,
+        format: "DD-MMM-YYYY"
+    });
 });
