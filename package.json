@@ -1,0 +1,27 @@
+{
+  "name": "movie-marathon",
+  "version": "1.0.0",
+  "description": "An app to plan back-to-back movies at the theatres",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francoiscampbell/MovieMarathonWeb.git"
+  },
+  "keywords": [
+    "movie"
+  ],
+  "author": "Francois Campbell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francoiscampbell/MovieMarathonWeb/issues"
+  },
+  "homepage": "https://github.com/francoiscampbell/MovieMarathonWeb#readme"
+}
