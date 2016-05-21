@@ -7,7 +7,15 @@
   "private": false,
   "dependencies": {
     "jquery": "^2.2.4",
-    "bootstrap": "3.3.4",
+    "bootstrap": "^3.3.6",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "./dist/css/bootstrap.css",
+        "./js/bootstrap.js"
+      ]
+    }
   }
 }

@@ -29,7 +29,6 @@
 
 <!-- bower:js -->
 <asset:javascript src="../../assets/bower_components/jquery/dist/jquery.js"/>
-<asset:javascript src="../../assets/bower_components/bootstrap/dist/js/bootstrap.js"/>
 <asset:javascript src="../../assets/bower_components/moment/moment.js"/>
 <asset:javascript src="../../assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"/>
 <asset:javascript
@@ -52,7 +51,7 @@
                           from="${allMovies}"
                           optionKey="tmsId"
                           multiple="true"
-                          size="${Math.min(allMovies.size(), 100)}"/>
+                          size="${Math.min(allMovies.size(), 15)}"/>
                 <g:submitButton class="btn btn-info btn-lg btn-block" name="submit" value="Generate schedules"/>
 
                 <a href="#" id="advancedOptionsTrigger">Advanced Options</a>

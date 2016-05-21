@@ -23,7 +23,6 @@
 
 <!-- bower:js -->
 <asset:javascript src="../../assets/bower_components/jquery/dist/jquery.js"/>
-<asset:javascript src="../../assets/bower_components/bootstrap/dist/js/bootstrap.js"/>
 <asset:javascript src="../../assets/bower_components/moment/moment.js"/>
 <asset:javascript src="../../assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"/>
 <asset:javascript
