@@ -10,6 +10,9 @@
 <head>
     <meta name="layout" content="main">
     <title>Movie Marathon</title>
+
+    <!-- bower:js -->
+    <!-- endbower -->
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <asset:javascript src="autocomplete.js"/>
     <asset:javascript src="dateTimePicker.js"/>

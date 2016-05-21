@@ -10,6 +10,9 @@
 <head>
     <meta name="layout" content="main">
     <title>Movie List</title>
+
+    <!-- bower:js -->
+    <!-- endbower -->
     <asset:javascript src="advancedOptions.js"/>
     <asset:stylesheet src="movieMarathon.movies.css"/>
 
