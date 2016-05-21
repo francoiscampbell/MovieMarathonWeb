@@ -10,6 +10,12 @@
 <head>
     <meta name="layout" content="main">
     <title>Possible Schedules</title>
+
+    <!-- bower:css -->
+    <asset:stylesheet src="../../assets/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <asset:stylesheet
+            src="../../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"/>
+    <!-- endbower -->
 </head>
 
 <body>
