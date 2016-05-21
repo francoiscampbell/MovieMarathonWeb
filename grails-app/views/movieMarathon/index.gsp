@@ -25,7 +25,7 @@
         <g:form class="form-horizontal" name="form-postcode" action="movies" method="post">
             <div class="form-group form-group-lg">
 
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <input type="text" class="form-control" name="pac-place"
                            placeholder="Where are you?"
                            value="" id="pac-place"/>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <g:submitButton class="btn btn-info btn-lg btn-block" name="submitButton" value="Choose movies"/>
                 </div>
 
