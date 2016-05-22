@@ -6,7 +6,8 @@ $(function () {
     $dateTimePicker.datetimepicker();
 
     $dateTimePicker.data("DateTimePicker").options({
-        minDate: false,
-        format: "DD-MMM-YYYY"
+        minDate: moment(),
+        defaultDate: moment(),
+        format: "YYYY-MM-DD"
     });
 });

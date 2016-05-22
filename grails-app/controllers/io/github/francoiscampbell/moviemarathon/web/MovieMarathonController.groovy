@@ -1,6 +1,5 @@
 package io.github.francoiscampbell.moviemarathon.web
 
-import grails.util.Environment
 import io.github.francoiscampbell.api.OnConnectApiRequest
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
@@ -13,34 +12,36 @@ class MovieMarathonController {
 
     //TODO: add user choice for builder params in index controller and fetch them here
     def movies() {
-        if (params.lat == null || params.lng == null) {
+        String paramRequestedLat = params.lat
+        String paramRequestedLng = params.lng
+        String paramRequestedDate = params.date ?: LocalDate.now().toString()
+
+        if (paramRequestedLat == null || paramRequestedLng == null) {
             redirect action: "index"
             return
         }
         float lat
         float lng
         try {
-            lat = Float.parseFloat(params.lat)
-            lng = Float.parseFloat(params.lng)
+            lat = Float.parseFloat(paramRequestedLat)
+            lng = Float.parseFloat(paramRequestedLng)
         } catch (NumberFormatException ignore) {
             redirect action: "index"
             return
         }
-        String currentDate = LocalDate.now().toString()
-        OnConnectApiRequest request
 
-        if (Environment.current == Environment.PRODUCTION) {
-            request = new OnConnectApiRequest.Builder(currentDate)
+        OnConnectApiRequest request
+//        if (Environment.current == Environment.PRODUCTION) {
+        request = new OnConnectApiRequest.Builder(paramRequestedDate)
                     .apiKey(ApiKey.API_KEY)
-                    .latlng(lat, lng) //TODO: fix exceptions for wrong data
+                .latlng(lat, lng)
                     .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
-                    .mockResponse(new File("mockResponse.json"))
                     .build()
-        } else {
-            request = new OnConnectApiRequest.Builder(currentDate)
-                    .mockResponse(new File("mockResponse.json"))
-                    .build()
-        }
+//        } else {
+//            request = new OnConnectApiRequest.Builder(params.date)
+//                    .mockResponse(new File("mockResponse.json"))
+//                    .build()
+//        }
 
         def builder = request.execute()
         session["builder"] = builder

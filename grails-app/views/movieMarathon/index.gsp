@@ -50,7 +50,7 @@
 
                 <div class="col-lg-6">
                     <div class='input-group date' id='dateTimePicker'>
-                        <input type='text' class="form-control" name="date" placeholder="When?" id="date"/>
+                        <input type='text' class="form-control" name="date" id="date"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
