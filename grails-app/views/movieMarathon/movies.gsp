@@ -61,7 +61,7 @@
                 <div class="form-group form-group-lg">
                     Include previews time in running time: <g:checkBox name="addPreviewsToRunningTime"
                                                                        value="${true}"/><br>
-                    Estimated preview length: <g:textField name="maxIndividualDelay"/><br>
+                    Estimated preview length: <g:textField name="previewLength"/><br>
                     Maximum individual delay between movies: <g:textField name="maxIndividualDelay"/><br>
                     Maximum total delay: <g:textField name="maxTotalDelay"/><br>
                     Maximum overlap between movies: <g:textField name="maxOverlap" value="${0}"/><br>

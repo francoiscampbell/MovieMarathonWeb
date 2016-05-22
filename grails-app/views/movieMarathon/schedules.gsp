@@ -29,8 +29,10 @@
                 <p>${showtime.toFriendlyString(true)}</p>
                 <g:set var="delay" value="${schedule.getDelayAfterShowtime(showtime)}"/>
                 <g:if test="${delay != null}">
-                    <g:set var="plural" value="${delay.getStandardMinutes() == 1 ? "minute" : "minutes"}"/>
-                    <p>Delay of ${delay.getStandardMinutes()} ${plural}</p>
+                    <g:set var="minutes" value="${delay.getStandardMinutes()}"/>
+                    <g:set var="plural" value="${Math.abs(minutes) == 1 ? "minute" : "minutes"}"/>
+                    <g:set var="overlap" value="${minutes < 0 ? "Overlap" : "Delay"}"/>
+                    <p>${overlap} of ${Math.abs(minutes)} ${plural}</p>
                 </g:if>
             </g:each>
         </g:each>

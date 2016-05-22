@@ -1,5 +1,6 @@
 package io.github.francoiscampbell.moviemarathon.web
 
+import grails.util.Environment
 import io.github.francoiscampbell.api.OnConnectApiRequest
 import io.github.francoiscampbell.model.Schedule
 import io.github.francoiscampbell.model.ScheduleGenerator
@@ -31,17 +32,17 @@ class MovieMarathonController {
         }
 
         OnConnectApiRequest request
-//        if (Environment.current == Environment.PRODUCTION) {
+        if (Environment.current == Environment.PRODUCTION) {
         request = new OnConnectApiRequest.Builder(paramRequestedDate)
                     .apiKey(ApiKey.API_KEY)
                 .latlng(lat, lng)
                     .radiusUnit(OnConnectApiRequest.RadiusUnit.KM)
                     .build()
-//        } else {
-//            request = new OnConnectApiRequest.Builder(params.date)
-//                    .mockResponse(new File("mockResponse.json"))
-//                    .build()
-//        }
+        } else {
+            request = new OnConnectApiRequest.Builder(params.date)
+                    .mockResponse(new File("mockResponse.json"))
+                    .build()
+        }
 
         def builder = request.execute()
         session["builder"] = builder
@@ -50,12 +51,9 @@ class MovieMarathonController {
 
     def schedules() {
         ScheduleGenerator.Builder builder = session.builder
-        chooseParameters(builder)
-        //TODO: choose parameters before and save the fully-built generator instead of the builder
 
-        def allMovies = builder.build().getAllMovies()
+        def allMovies = chooseParameters(builder).getAllMovies()
         def desiredMovies = allMovies.findAll { params.movies?.contains it.tmsId }
-
         List<Schedule> possibleSchedules = builder.build().generateSchedules(desiredMovies)
 
         [schedules: possibleSchedules]
@@ -63,11 +61,17 @@ class MovieMarathonController {
 
     private def chooseParameters(ScheduleGenerator.Builder builder) {
         boolean ignorePreviews = params.addPreviewsToRunningTime == "on"
+        long previewLength = Long.parseLong(params.previewLength ?: "15")
+        long maxIndividualDelay = Long.parseLong(params.maxIndividualDelay ?: "999")
+        long maxTotalDelay = Long.parseLong(params.maxTotalDelay ?: "999")
         long maxOverlapMinutes = Long.parseLong(params.maxOverlap ?: "0")
 
-        builder.sortByDelay(true)
+        return builder.sortByDelay(true)
                 .ignorePreviews(ignorePreviews)
+                .maxIndividualDelay(Duration.standardMinutes(maxIndividualDelay))
+                .maxTotalDelay(Duration.standardMinutes(maxTotalDelay))
                 .maxOverlap(Duration.standardMinutes(maxOverlapMinutes))
+                .build()
     }
 
 }
